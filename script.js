@@ -12,6 +12,12 @@ function render (html) {
 */
 function greet () {
   // TODO: Write your code here
+
+  const name = prompt('What is your name, user?')
+  if (!name) {
+    render("<h1> This is blank type your name </h1>")
+    return ("<p> Good day, ${name} </p>")
+  }
 }
 
 /* 
@@ -24,6 +30,7 @@ function greet () {
 */
 function averageNumbers () {
   // TODO: Write your code here
+ C
 }
 
 /* 
@@ -47,6 +54,22 @@ function timeOfDay () {
 */
 function randomBetween () {
   // TODO: Write your code here
+  const min = parseInt(prompt('Enter a minimum number:'))
+  const max = parseInt(prompt('Enter a maximum number'))
+
+  if(isNaN(min) || isNaN(max)){
+    render(`Please provide REAL numbers thank you`)
+    return
+  }
+
+  if(min >= max){
+    render(`your minimum should not be more than your max dummy`)
+    return
+  }
+
+  const rndNum = Math.random() * (max - min + 1)
+  render(rndNum)
+
 }
 
 /* 
