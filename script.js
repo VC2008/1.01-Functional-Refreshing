@@ -3,13 +3,7 @@ function render (html) {
   document.getElementById('out').innerHTML = html
 }
 
-/* 
-  Function 1 — greet()
-  ---------------------
-  - Prompt the user for their name
-  - If they type something, display "Hello, NAME!"
-  - If they cancel or leave blank, show a friendly message
-*/
+
 function greet () {
   // TODO: Write your code here
 
@@ -23,16 +17,17 @@ function greet () {
 /* 
   Function 2 — averageNumbers()
   ------------------------------
-  - Prompt the user for a list of numbers separated by commas
-  - Split the input into an array, turn into numbers
-  - Calculate the average
-  - Display the average AND the list of numbers
-*/
-function averageNumbers () {
-  // TODO: Write your code here
- C
-}
 
+*/
+function averageNumbers() {
+  const numbers = window
+    .prompt("Input a list of comma separated numbers")
+    ?.split(",")
+    ?.map((n) => parseFloat(n.trim()))
+    ?.filter((e) => isNaN(e) === false && e !== Math.E);
+  if (numbers) {
+    const avg = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+    render(`<p>Average: ${avg}</p><ul id="LIOPT" class="list-group"></ul>`);
 /* 
   Function 3 — timeOfDay()
   -------------------------
@@ -41,19 +36,20 @@ function averageNumbers () {
   - Display a message like "Good morning!" 
 */
 function timeOfDay () {
-  // TODO: Write your code here
+  const h = new Date().getHours();
+  let message = "";
+  if (h < 12) message = "Good morning, User";
+  else if (h < 18) message = "Good Day, User!";
+  else message = "Good Night, User!";
+    render(`<p>${message}</p>`);
+
+
+
+
 }
 
-/* 
-  Function 4 — randomBetween()
-  -----------------------------
-  - Prompt the user for a minimum and maximum number
-  - Generate a random number between them
-  - Display the result
-  - Handle invalid input (like blanks or min >= max)
-*/
-function randomBetween () {
-  // TODO: Write your code here
+ 
+function randomBetween () 
   const min = parseInt(prompt('Enter a minimum number:'))
   const max = parseInt(prompt('Enter a maximum number'))
 
@@ -91,15 +87,4 @@ document.getElementById('btnClear').addEventListener('click', clearOutput)
 
 /* 
   ------------------------------------------
-  Student Challenge Section 
-  ------------------------------------------
-  Add 4 new functions here, each with its own button in index.html:
-  
-  1) Change the page title text to something new.
-  2) Each time you press the button, the output text color cycles through a few choices (red, green, orange, etc.).
-  3) Press the button to change the background color of the output box to a random color.
-  4) Ask the user for a number and display that number doubled.
-  
-  Write each function below, and don’t forget to connect each one 
-  to a new button in index.html using addEventListener.
-*/
+ 
